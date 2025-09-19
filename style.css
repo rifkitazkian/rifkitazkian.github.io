@@ -1,4 +1,56 @@
-/* PERBAIKAN UTAMA: Mengatur jarak foto dengan konten */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    color: rgb(11, 11, 11);
+    background-color: rgb(0, 0, 50);
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.mylogo {
+    font-size: 25px;
+    color: white;
+    text-decoration: none;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.mylogo span {
+    color: #00bcd4;
+}
+
+.navbar a {
+    font-size: 1.1em;
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    margin-left: 30px;
+}
+
+.navbar a:hover {
+    color: #00bcd4;
+}
+
 .home {
     display: flex;
     flex-direction: row;
@@ -6,12 +58,33 @@
     justify-content: space-between;
     padding: 100px 10% 50px;
     min-height: 100vh;
-    gap: 40px; /* Menambah properti gap untuk mengatur jarak antara konten dan foto */
 }
 
 .content {
     max-width: 600px;
-    flex: 1; /* Memastikan konten mengambil ruang yang tersedia */
+}
+
+.content h3 {
+    font-size: 32px;
+    font-weight: 700;
+    color: rgb(235, 235, 255);
+}
+
+.content h1 {
+    font-size: 50px;
+    font-weight: 700;
+    margin: -3px 0;
+    color: white;
+}
+
+span {
+    color: white;
+}
+
+.content p {
+    font-size: 18px;
+    color: rgb(183, 183, 183);
+    margin-top: 10px;
 }
 
 .image-container {
@@ -20,54 +93,80 @@
     overflow: hidden;
     border-radius: 8px;
     flex-shrink: 0;
-    margin-left: 0; /* Memastikan tidak ada margin kiri yang berlebihan */
 }
 
-/* Opsi alternatif: jika ingin foto lebih dekat */
-.image-container.closer {
-    margin-left: -20px; /* Membawa foto lebih dekat ke konten */
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
 }
 
-/* Opsi alternatif: menggunakan transform untuk mendekatkan foto */
-.image-container.transform-closer {
-    transform: translateX(-30px);
-}
+/* ========= RESPONSIVE DESIGN ========= */
 
-/* PERBAIKAN RESPONSIVE DESIGN */
 @media (max-width: 992px) {
     .home {
         flex-direction: column;
         text-align: center;
         padding: 120px 10% 50px;
-        gap: 20px; /* Mengurangi gap pada tampilan mobile */
     }
 
     .image-container {
-        margin-top: 20px; /* Mengurangi jarak atas pada mobile */
+        margin-top: 30px;
         width: 200px;
         height: 250px;
+    }
+
+    .content h1 {
+        font-size: 40px;
+    }
+
+    .content h3 {
+        font-size: 24px;
+    }
+
+    .content p {
+        font-size: 16px;
+    }
+
+    .navbar a {
+        font-size: 16px;
+        margin-left: 20px;
     }
 }
 
 @media (max-width: 576px) {
-    .home {
-        gap: 15px; /* Gap lebih kecil untuk device sangat kecil */
-        padding: 100px 5% 30px;
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 5%;
+    }
+
+    .navbar {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 10px;
+    }
+
+    .navbar a {
+        margin: 5px 10px 0 0;
+        font-size: 14px;
+    }
+
+    .content h1 {
+        font-size: 28px;
+    }
+
+    .content h3 {
+        font-size: 20px;
+    }
+
+    .content p {
+        font-size: 14px;
     }
 
     .image-container {
         width: 180px;
         height: 220px;
-        margin-top: 15px;
     }
-}
-
-/* Opsi tambahan: animasi hover untuk foto */
-.image-container {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.image-container:hover {
-    transform: scale(1.05);
-    box-shadow: 0 10px 20px rgba(0, 188, 212, 0.3);
 }
